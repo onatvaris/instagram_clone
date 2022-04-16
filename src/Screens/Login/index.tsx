@@ -1,15 +1,4 @@
-import {
-  View,
-  Text,
-  Image,
-  SafeAreaView,
-  TextInput,
-  Platform,
-  KeyboardAvoidingView,
-  Keyboard,
-  TouchableWithoutFeedback,
-  TouchableOpacity
-} from 'react-native';
+import { View, Text, Image } from 'react-native';
 import React from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../Router';
@@ -18,16 +7,12 @@ import CustomTextInput from '../../Components/CustomTextInput';
 import Container from '../../Components/Container';
 import GenerateStyle from '../../Utils/generateStyle';
 import CustomButton from '../../Components/CustomButton';
-
+import Login from '../../Containers/login';
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
-const Login: React.FC<Props> = ({ navigation, route }) => {
-  const { height } = GenerateStyle.screenSize;
+const { height } = GenerateStyle.screenSize;
 
-  const navigateScreen = (screen: string) => {};
-
-  const login = () => {};
-
+const _login: React.FC = () => {
   return (
     <Container containerStyle={styles.container}>
       <View>
@@ -50,13 +35,13 @@ const Login: React.FC<Props> = ({ navigation, route }) => {
         />
         <CustomButton
           buttonText='Forgot Password?'
-          click={() => navigateScreen('ForgotPassword')}
+          click={() => console.log('first')}
           buttonStyle={{ alignSelf: 'flex-end', marginVertical: 10 }}
           textStyle={{ color: '#3797EF' }}
         />
         <CustomButton
           buttonText='Log in'
-          click={() => login()}
+          click={() => console.log('first')}
           buttonStyle={styles.button}
           textStyle={{ color: '#fff' }}
         />
@@ -115,4 +100,4 @@ const Login: React.FC<Props> = ({ navigation, route }) => {
   );
 };
 
-export default Login;
+export default Login({ content: _login });
